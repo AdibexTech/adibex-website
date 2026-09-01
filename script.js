@@ -1,7 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-  const menuButton = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('#navLinks');
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('#navLinks');
 
 menuButton?.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
@@ -274,7 +272,7 @@ const serviceDetailList = document.getElementById("serviceDetailList");
 const serviceModalClose = document.getElementById("serviceModalClose");
 const serviceQuoteButton = document.getElementById("serviceQuoteButton");
 
-const serviceCards = document.querySelectorAll(".service-card");
+const serviceCards = document.querySelectorAll(".service-open");
 
 
 /* =========================================================
@@ -440,16 +438,12 @@ function closeServiceModal() {
 
 serviceCards.forEach((card) => {
 
-  card.addEventListener("click", (event) => {
+  card.addEventListener("click", () => {
 
-    event.preventDefault();
-    event.stopPropagation();
+    const serviceKey =
+      card.getAttribute("data-service");
 
-    const serviceKey = card.getAttribute("data-service");
-
-    if (serviceKey) {
-      openServiceModal(serviceKey);
-    }
+    openServiceModal(serviceKey);
 
   });
 
@@ -467,17 +461,17 @@ serviceCards.forEach((card) => {
 
       event.preventDefault();
 
-      const serviceKey = card.getAttribute("data-service");
+      const serviceKey =
+        card.getAttribute("data-service");
 
-      if (serviceKey) {
-        openServiceModal(serviceKey);
-      }
+      openServiceModal(serviceKey);
 
     }
 
   });
 
 });
+
 
 /* =========================================================
    CLOSE BUTTON
@@ -539,4 +533,3 @@ document.addEventListener(
 
   }
 );
-});
