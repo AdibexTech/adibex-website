@@ -1,5 +1,7 @@
-const menuButton = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('#navLinks');
+document.addEventListener("DOMContentLoaded", () => {
+
+  const menuButton = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('#navLinks');
 
 menuButton?.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
@@ -272,7 +274,7 @@ const serviceDetailList = document.getElementById("serviceDetailList");
 const serviceModalClose = document.getElementById("serviceModalClose");
 const serviceQuoteButton = document.getElementById("serviceQuoteButton");
 
-const serviceCards = document.querySelectorAll(".service-open");
+const serviceCards = document.querySelectorAll(".service-card");
 
 
 /* =========================================================
@@ -533,3 +535,4 @@ document.addEventListener(
 
   }
 );
+});
