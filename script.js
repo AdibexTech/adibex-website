@@ -275,25 +275,59 @@ const serviceQuoteButton = document.getElementById("serviceQuoteButton");
 const serviceCards = document.querySelectorAll(".service-open");
 
 
+/* =========================================================
+   OPEN SERVICE MODAL
+   ========================================================= */
+
 function openServiceModal(serviceKey) {
 
   const service = serviceData[serviceKey];
 
   if (!service) {
+    console.error("Service not found:", serviceKey);
     return;
   }
 
-  /* Title */
+  /* Make sure modal elements exist */
+
+  if (
+    !serviceModal ||
+    !serviceModalTitle ||
+    !serviceModalIntro ||
+    !serviceDetailList ||
+    !serviceQuoteButton
+  ) {
+    console.error(
+      "Service modal HTML elements are missing."
+    );
+    return;
+  }
+
+
+  /* -------------------------------------------------------
+     SERVICE TITLE
+     ------------------------------------------------------- */
 
   serviceModalTitle.textContent = service.title;
 
-  /* Introduction */
+
+  /* -------------------------------------------------------
+     SERVICE INTRODUCTION
+     ------------------------------------------------------- */
 
   serviceModalIntro.textContent = service.intro;
 
-  /* Services */
+
+  /* -------------------------------------------------------
+     CLEAR OLD SERVICE DETAILS
+     ------------------------------------------------------- */
 
   serviceDetailList.innerHTML = "";
+
+
+  /* -------------------------------------------------------
+     ADD THE 5 SERVICES
+     ------------------------------------------------------- */
 
   service.services.forEach((item, index) => {
 
@@ -306,9 +340,10 @@ function openServiceModal(serviceKey) {
         ${String(index + 1).padStart(2, "0")}
       </div>
 
-      <h3>${item.title}</h3>
-
-      <p>${item.description}</p>
+      <div class="service-detail-content">
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+      </div>
     `;
 
     serviceDetailList.appendChild(serviceItem);
@@ -316,53 +351,106 @@ function openServiceModal(serviceKey) {
   });
 
 
-  /* Request quote email */
+  /* -------------------------------------------------------
+     REQUEST A QUOTE BUTTON
+     ------------------------------------------------------- */
 
-  const subject =
-    encodeURIComponent(
-      "Request for Quote - " + service.title
-    );
+  const subject = encodeURIComponent(
+    "Request for Quote - " + service.title
+  );
+
+  const body = encodeURIComponent(
+    "Hello Adibex Technologies,\n\n" +
+    "I am interested in your " +
+    service.title +
+    " services.\n\n" +
+    "Please contact me to discuss my requirements and provide a quotation.\n\n" +
+    "Thank you."
+  );
 
   serviceQuoteButton.href =
-    "mailto:info@adibextechnologies.com?subject=" + subject;
+    "mailto:info@adibextechnologies.com" +
+    "?subject=" +
+    subject +
+    "&body=" +
+    body;
 
 
-  /* Open modal */
+  /* -------------------------------------------------------
+     OPEN MODAL
+     ------------------------------------------------------- */
 
   serviceModal.classList.add("active");
 
-  serviceModal.setAttribute("aria-hidden", "false");
+  serviceModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
 
-  document.body.classList.add("service-modal-open");
+  document.body.classList.add(
+    "service-modal-open"
+  );
 
-  serviceModalClose.focus();
+
+  /* Prevent page scrolling */
+
+  document.body.style.overflow = "hidden";
+
+
+  /* Move keyboard focus to close button */
+
+  if (serviceModalClose) {
+    serviceModalClose.focus();
+  }
+
 }
 
+
+/* =========================================================
+   CLOSE SERVICE MODAL
+   ========================================================= */
 
 function closeServiceModal() {
 
+  if (!serviceModal) {
+    return;
+  }
+
   serviceModal.classList.remove("active");
 
-  serviceModal.setAttribute("aria-hidden", "true");
+  serviceModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
 
-  document.body.classList.remove("service-modal-open");
+  document.body.classList.remove(
+    "service-modal-open"
+  );
+
+  document.body.style.overflow = "";
+
 }
 
 
-/* Card click */
+/* =========================================================
+   SERVICE CARD CLICK
+   ========================================================= */
 
 serviceCards.forEach((card) => {
 
   card.addEventListener("click", () => {
 
-    const serviceKey = card.dataset.service;
+    const serviceKey =
+      card.getAttribute("data-service");
 
     openServiceModal(serviceKey);
 
   });
 
 
-  /* Keyboard accessibility */
+  /* -------------------------------------------------------
+     KEYBOARD ACCESSIBILITY
+     ------------------------------------------------------- */
 
   card.addEventListener("keydown", (event) => {
 
@@ -373,9 +461,11 @@ serviceCards.forEach((card) => {
 
       event.preventDefault();
 
-      const serviceKey = card.dataset.service;
+      const serviceKey =
+        card.getAttribute("data-service");
 
       openServiceModal(serviceKey);
+
     }
 
   });
@@ -383,42 +473,63 @@ serviceCards.forEach((card) => {
 });
 
 
-/* Close button */
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
 
-serviceModalClose.addEventListener(
-  "click",
-  closeServiceModal
+if (serviceModalClose) {
+
+  serviceModalClose.addEventListener(
+    "click",
+    closeServiceModal
+  );
+
+}
+
+
+/* =========================================================
+   CLICK OUTSIDE MODAL
+   ========================================================= */
+
+if (serviceModal) {
+
+  serviceModal.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target.classList.contains(
+          "service-modal-overlay"
+        )
+      ) {
+
+        closeServiceModal();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   ESC KEY
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Escape" &&
+      serviceModal &&
+      serviceModal.classList.contains("active")
+    ) {
+
+      closeServiceModal();
+
+    }
+
+  }
 );
-
-
-/* Click outside modal */
-
-serviceModal.addEventListener("click", (event) => {
-
-  if (
-    event.target.classList.contains(
-      "service-modal-overlay"
-    )
-  ) {
-
-    closeServiceModal();
-
-  }
-
-});
-
-
-/* ESC key */
-
-document.addEventListener("keydown", (event) => {
-
-  if (
-    event.key === "Escape" &&
-    serviceModal.classList.contains("active")
-  ) {
-
-    closeServiceModal();
-
-  }
-
-});
