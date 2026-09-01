@@ -573,4 +573,350 @@ body.service-modal-open {
     height: 40px;
   }
 }
+  /* =========================================================
+   CLICKABLE SERVICE CARDS
+   ========================================================= */
+
+.service-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.service-card-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.25s ease;
+}
+
+.service-card:hover .service-card-link {
+  transform: translateX(5px);
+}
+
+.service-card:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   SERVICE DETAILS MODAL
+   ========================================================= */
+
+.service-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.service-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* DARK BACKGROUND */
+
+.service-modal-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(3, 20, 38, 0.82);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+
+/* MINI PANEL */
+
+.service-modal-box {
+  position: relative;
+  z-index: 2;
+
+  width: min(900px, 100%);
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25);
+
+  transform: translateY(30px) scale(0.97);
+
+  transition:
+    transform 0.3s ease;
+}
+
+.service-modal.active .service-modal-box {
+  transform: translateY(0) scale(1);
+}
+
+
+/* X CLOSE BUTTON */
+
+.service-modal-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f1f5f9;
+  color: #071a2d;
+
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.service-modal-close:hover {
+  background: #e2e8f0;
+  transform: rotate(90deg);
+}
+
+
+/* PANEL CONTENT */
+
+.service-modal-content {
+  padding: 48px 50px 40px;
+}
+
+.service-modal-content h2 {
+  margin: 8px 0 14px;
+
+  font-size: clamp(30px, 4vw, 44px);
+
+  line-height: 1.1;
+
+  color: var(--navy);
+}
+
+.service-modal-intro {
+  max-width: 750px;
+
+  margin-bottom: 28px;
+
+  color: #526273;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* SERVICE LIST */
+
+.service-detail-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 30px;
+}
+
+.service-detail-item {
+  padding: 20px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.service-detail-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(3, 20, 38, 0.08);
+}
+
+.service-detail-number {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  margin-bottom: 10px;
+
+  border-radius: 50%;
+
+  background: #e8f2ff;
+
+  color: var(--blue);
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.service-detail-item h3 {
+  margin: 0 0 7px;
+
+  color: var(--navy);
+
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.service-detail-item p {
+  margin: 0;
+
+  color: #5b6878;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* REQUEST A QUOTE */
+
+.service-quote-box {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 25px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0f7ff,
+      #ffffff
+    );
+
+  border: 1px solid #dbeafe;
+}
+
+.service-quote-box h3 {
+  margin: 5px 0 7px;
+
+  color: var(--navy);
+
+  font-size: 21px;
+}
+
+.service-quote-box p:not(.eyebrow) {
+  margin: 0;
+
+  color: #5b6878;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* STOP PAGE SCROLL WHEN MODAL IS OPEN */
+
+body.service-modal-open {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MODAL MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .service-modal {
+    padding: 15px;
+  }
+
+  .service-modal-box {
+    max-height: 94vh;
+    border-radius: 16px;
+  }
+
+  .service-modal-content {
+    padding: 42px 20px 22px;
+  }
+
+  .service-modal-content h2 {
+    font-size: 30px;
+    padding-right: 35px;
+  }
+
+  .service-modal-intro {
+    font-size: 14px;
+  }
+
+  .service-detail-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .service-detail-item {
+    padding: 18px;
+  }
+
+  .service-quote-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .service-quote-box .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .service-modal-close {
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+  }
+}
 }
