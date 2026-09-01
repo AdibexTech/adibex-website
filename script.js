@@ -440,12 +440,16 @@ function closeServiceModal() {
 
 serviceCards.forEach((card) => {
 
-  card.addEventListener("click", () => {
+  card.addEventListener("click", (event) => {
 
-    const serviceKey =
-      card.getAttribute("data-service");
+    event.preventDefault();
+    event.stopPropagation();
 
-    openServiceModal(serviceKey);
+    const serviceKey = card.getAttribute("data-service");
+
+    if (serviceKey) {
+      openServiceModal(serviceKey);
+    }
 
   });
 
@@ -463,17 +467,17 @@ serviceCards.forEach((card) => {
 
       event.preventDefault();
 
-      const serviceKey =
-        card.getAttribute("data-service");
+      const serviceKey = card.getAttribute("data-service");
 
-      openServiceModal(serviceKey);
+      if (serviceKey) {
+        openServiceModal(serviceKey);
+      }
 
     }
 
   });
 
 });
-
 
 /* =========================================================
    CLOSE BUTTON
