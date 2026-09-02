@@ -306,6 +306,11 @@ const serviceModalClose = document.getElementById("serviceModalClose");
 const serviceQuoteButton = document.getElementById("serviceQuoteButton");
 
 const serviceCards = document.querySelectorAll(".service-card");
+const enquiryModal = document.getElementById("enquiryModal");
+const enquiryModalClose = document.getElementById("enquiryModalClose");
+const enquiryModalOverlay = enquiryModal?.querySelector(".enquiry-modal-overlay");
+const enquiryForm = document.getElementById("enquiryForm");
+const enquiryService = document.getElementById("enquiryService");
 
 
 /* =========================================================
@@ -566,3 +571,73 @@ document.addEventListener(
 
   }
 );
+/* =========================================================
+   ENQUIRY FORM MODAL
+   ========================================================= */
+
+function openEnquiryModal(serviceName = "") {
+
+  if (!enquiryModal) return;
+
+  if (enquiryService) {
+    enquiryService.value = serviceName || "";
+  }
+
+  enquiryModal.classList.add("active");
+  enquiryModal.setAttribute("aria-hidden", "false");
+
+  document.body.style.overflow = "hidden";
+
+  setTimeout(() => {
+    document.getElementById("enquiryName")?.focus();
+  }, 100);
+}
+
+
+function closeEnquiryModal() {
+
+  if (!enquiryModal) return;
+
+  enquiryModal.classList.remove("active");
+  enquiryModal.setAttribute("aria-hidden", "true");
+
+  document.body.style.overflow = "";
+}
+
+
+/* CLOSE BUTTON */
+
+enquiryModalClose?.addEventListener("click", closeEnquiryModal);
+
+
+/* CLICK OUTSIDE */
+
+enquiryModalOverlay?.addEventListener("click", closeEnquiryModal);
+
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key === "Escape" && enquiryModal?.classList.contains("active")) {
+    closeEnquiryModal();
+  }
+
+});
+
+
+/* =========================================================
+   CONTACT / QUOTE BUTTONS
+   ========================================================= */
+
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+
+  link.addEventListener("click", (event) => {
+
+    event.preventDefault();
+
+    openEnquiryModal();
+
+  });
+
+});
