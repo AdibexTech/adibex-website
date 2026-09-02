@@ -272,7 +272,7 @@ const serviceDetailList = document.getElementById("serviceDetailList");
 const serviceModalClose = document.getElementById("serviceModalClose");
 const serviceQuoteButton = document.getElementById("serviceQuoteButton");
 
-const serviceCards = document.querySelectorAll(".service-open");
+const serviceCards = document.querySelectorAll(".service-card");
 
 
 /* =========================================================
