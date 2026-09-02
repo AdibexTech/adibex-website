@@ -43,185 +43,256 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 const serviceData = {
 
-  infrastructure: {
-    title: "IT Infrastructure",
-
-    intro:
-      "End-to-end IT infrastructure solutions designed to provide secure, reliable and high-performing technology environments for businesses.",
-
-    services: [
-      {
-        title: "Infrastructure Design & Planning",
-        description:
-          "Design and plan reliable IT infrastructure based on business requirements, performance needs and future growth."
-      },
-      {
-        title: "Server & Compute Solutions",
-        description:
-          "Deploy and manage server and compute environments designed for performance, reliability and operational efficiency."
-      },
-      {
-        title: "Virtualization Solutions",
-        description:
-          "Implement virtualization technologies to improve resource utilization, scalability and infrastructure flexibility."
-      },
-      {
-        title: "Infrastructure Monitoring",
-        description:
-          "Monitor infrastructure performance and availability to identify issues early and maintain reliable operations."
-      },
-      {
-        title: "Infrastructure Support & Maintenance",
-        description:
-          "Provide ongoing technical support and maintenance to keep IT infrastructure stable, secure and operational."
-      }
-    ]
-  },
+infrastructure: {
+  title: "IT Infrastructure",
+  intro:
+    "Reliable IT infrastructure solutions designed to keep business environments stable, secure, and scalable.",
+  services: [
+    {
+      title: "Server Deployment & Management",
+      description:
+        "Server deployment, configuration and ongoing management for reliable business operations."
+    },
+    {
+      title: "Windows / Linux Administration",
+      description:
+        "Administration and support for Windows and Linux server environments."
+    },
+    {
+      title: "Virtualization Solutions",
+      description:
+        "Virtualization solutions designed to improve resource utilization, flexibility and scalability."
+    },
+    {
+      title: "Infrastructure Monitoring",
+      description:
+        "Monitor infrastructure performance and availability to identify issues and maintain stable operations."
+    },
+    {
+      title: "Backup & Recovery",
+      description:
+        "Backup and recovery solutions designed to protect business data and support operational continuity."
+    },
+    {
+      title: "Hardware Installation & Support",
+      description:
+        "Hardware installation, configuration and technical support for IT infrastructure environments."
+    },
+    {
+      title: "IT Infrastructure Assessment",
+      description:
+        "Assess existing IT infrastructure to identify improvement opportunities, risks and operational requirements."
+    },
+    {
+      title: "Troubleshooting & Maintenance",
+      description:
+        "Technical troubleshooting and maintenance to keep IT infrastructure reliable and operational."
+    }
+  ]
+},
 
 
   software: {
-    title: "Software Development",
-
-    intro:
-      "Custom software solutions built around your business requirements, workflows and operational goals.",
-
-    services: [
-      {
-        title: "Custom Application Development",
-        description:
-          "Build custom applications designed specifically around your organization's processes and requirements."
-      },
-      {
-        title: "Web Application Development",
-        description:
-          "Develop responsive and scalable web applications that provide reliable access across modern devices."
-      },
-      {
-        title: "Business Process Applications",
-        description:
-          "Create applications that simplify business workflows and improve operational efficiency."
-      },
-      {
-        title: "Application Integration",
-        description:
-          "Connect applications and systems to improve information flow and reduce manual processes."
-      },
-      {
-        title: "Application Maintenance",
-        description:
-          "Maintain and improve existing applications through enhancements, fixes and ongoing technical support."
-      }
-    ]
-  },
-
+  title: "Software Development",
+  intro:
+    "Custom software solutions focused on business-oriented applications, internal tools, automation and operational efficiency.",
+  services: [
+    {
+      title: "Custom Business Applications",
+      description:
+        "Develop custom applications designed around specific business requirements and operational processes."
+    },
+    {
+      title: "Web Application Development",
+      description:
+        "Develop responsive web applications for business operations, internal users and customers."
+    },
+    {
+      title: "Internal Tools & Dashboards",
+      description:
+        "Build internal tools and dashboards to improve visibility, reporting and operational efficiency."
+    },
+    {
+      title: "API Development & Integration",
+      description:
+        "Develop and integrate APIs to connect applications, systems and business processes."
+    },
+    {
+      title: "Database-Driven Applications",
+      description:
+        "Develop applications that use structured business data to support operational requirements."
+    },
+    {
+      title: "Automation Software",
+      description:
+        "Develop software solutions that automate repetitive tasks and improve business workflows."
+    },
+    {
+      title: "Application Maintenance & Support",
+      description:
+        "Provide ongoing application maintenance, troubleshooting and technical support."
+    },
+    {
+      title: "Existing Application Enhancement",
+      description:
+        "Enhance existing applications with new features, improvements and required modifications."
+    }
+  ]
+},
 
   cloud: {
-    title: "Cloud Solutions",
-
-    intro:
-      "Scalable, secure and cost-effective cloud solutions designed to improve business agility and simplify technology operations.",
-
-    services: [
-      {
-        title: "Cloud Assessment & Planning",
-        description:
-          "Assess existing environments and develop a practical cloud strategy aligned with business requirements."
-      },
-      {
-        title: "Cloud Migration",
-        description:
-          "Plan and execute workload migrations with focus on reliability, security and minimal operational disruption."
-      },
-      {
-        title: "Cloud Infrastructure",
-        description:
-          "Design scalable cloud environments that support business applications, workloads and future growth."
-      },
-      {
-        title: "Cloud Monitoring & Management",
-        description:
-          "Monitor cloud environments and help maintain performance, availability and operational visibility."
-      },
-      {
-        title: "Cloud Optimization",
-        description:
-          "Improve cloud resource utilization and operational efficiency through practical optimization approaches."
-      }
-    ]
-  },
-
+  title: "Cloud Solutions",
+  intro:
+    "Scalable cloud solutions that help businesses modernize infrastructure, improve availability, and manage IT efficiently.",
+  services: [
+    {
+      title: "Cloud Infrastructure Setup",
+      description:
+        "Set up cloud infrastructure based on business requirements, workload needs and scalability objectives."
+    },
+    {
+      title: "Cloud Migration",
+      description:
+        "Plan and execute cloud migrations with focus on reliability, security and minimal operational disruption."
+    },
+    {
+      title: "Cloud Server Deployment",
+      description:
+        "Deploy and configure cloud-based servers to support business applications and workloads."
+    },
+    {
+      title: "Cloud Monitoring & Management",
+      description:
+        "Monitor and manage cloud environments to maintain performance, availability and operational visibility."
+    },
+    {
+      title: "Cloud Backup & Disaster Recovery",
+      description:
+        "Implement cloud-based backup and disaster recovery solutions to protect business data and support continuity."
+    },
+    {
+      title: "Hybrid Cloud Solutions",
+      description:
+        "Design and support hybrid cloud environments connecting on-premises infrastructure with cloud resources."
+    },
+    {
+      title: "Cloud Security & Access Management",
+      description:
+        "Support cloud security controls and access management to help protect systems and business resources."
+    },
+    {
+      title: "Cloud Optimization & Support",
+      description:
+        "Optimize cloud environments for efficient resource utilization, performance and ongoing operational support."
+    }
+  ]
+},
 
   datacenter: {
-    title: "Data Center Solutions",
-
-    intro:
-      "Modern data center solutions focused on performance, availability, reliability and efficient infrastructure operations.",
-
-    services: [
-      {
-        title: "Data Center Design",
-        description:
-          "Design dependable data center environments based on availability, performance and business requirements."
-      },
-      {
-        title: "Server Infrastructure",
-        description:
-          "Implement reliable server infrastructure designed to support critical business workloads."
-      },
-      {
-        title: "Data Center Monitoring",
-        description:
-          "Monitor infrastructure health, performance and availability to help maintain stable operations."
-      },
-      {
-        title: "Data Center Optimization",
-        description:
-          "Identify opportunities to improve infrastructure utilization, performance and operational efficiency."
-      },
-      {
-        title: "Data Center Support",
-        description:
-          "Provide technical support and maintenance to help keep data center environments reliable and operational."
-      }
-    ]
-  },
-
+  title: "Data Center Solutions",
+  intro:
+    "Reliable data center solutions designed to support secure, resilient, and highly available IT infrastructure.",
+  services: [
+    {
+      title: "Data Center Infrastructure Deployment",
+      description:
+        "Deploy data center infrastructure based on availability, performance and business requirements."
+    },
+    {
+      title: "Server & Rack Installation",
+      description:
+        "Install and configure servers, racks and related data center infrastructure."
+    },
+    {
+      title: "Data Center Migration",
+      description:
+        "Plan and execute data center migrations with focus on reliability, coordination and minimal disruption."
+    },
+    {
+      title: "Storage Infrastructure Solutions",
+      description:
+        "Provide storage infrastructure solutions designed around capacity, performance and data availability."
+    },
+    {
+      title: "Data Center Monitoring",
+      description:
+        "Monitor data center infrastructure health, performance and availability to maintain stable operations."
+    },
+    {
+      title: "Hardware Maintenance & Support",
+      description:
+        "Provide hardware maintenance and technical support for data center infrastructure."
+    },
+    {
+      title: "Data Center Optimization",
+      description:
+        "Identify opportunities to improve infrastructure utilization, performance and operational efficiency."
+    },
+    {
+      title: "Backup & Disaster Recovery Solutions",
+      description:
+        "Implement backup and disaster recovery solutions to protect critical systems and support business continuity."
+    }
+  ]
+},
 
   automation: {
-    title: "IT Automation",
-
-    intro:
-      "Automation solutions that reduce repetitive manual work, improve operational efficiency and help teams deliver faster.",
-
-    services: [
-      {
-        title: "IT Task Automation",
-        description:
-          "Automate repetitive IT tasks to reduce manual effort and improve operational consistency."
-      },
-      {
-        title: "Report Automation",
-        description:
-          "Automate recurring reports and data collection processes to save time and improve reporting efficiency."
-      },
-      {
-        title: "Monitoring Automation",
-        description:
-          "Automate monitoring workflows to improve visibility and help identify operational issues quickly."
-      },
-      {
-        title: "Workflow Automation",
-        description:
-          "Create automated workflows that connect operational activities and reduce unnecessary manual steps."
-      },
-      {
-        title: "Automation Optimization",
-        description:
-          "Identify repetitive processes and develop practical automation opportunities that improve productivity."
-      }
-    ]
-  },
-
+  title: "Automation",
+  intro:
+    "Practical automation solutions that reduce repetitive work, improve operational efficiency, and provide better visibility across IT and business processes.",
+  services: [
+    {
+      title: "IT Operations Automation",
+      description:
+        "Automate repetitive IT operations to reduce manual effort and improve operational consistency."
+    },
+    {
+      title: "Infrastructure Monitoring & Alerting",
+      description:
+        "Automate infrastructure monitoring and alerting to improve visibility and identify issues quickly."
+    },
+    {
+      title: "Automated Reporting",
+      description:
+        "Automate recurring reports and data collection to save time and improve reporting efficiency."
+    },
+    {
+      title: "Server & Storage Automation",
+      description:
+        "Automate server and storage tasks to improve operational efficiency and reduce repetitive manual work."
+    },
+    {
+      title: "Network Automation",
+      description:
+        "Automate network operations and repetitive tasks to improve consistency and operational efficiency."
+    },
+    {
+      title: "Data Collection & Dashboard Automation",
+      description:
+        "Automate data collection and dashboard updates to provide better operational visibility."
+    },
+    {
+      title: "Business Process Automation",
+      description:
+        "Automate repetitive business processes to reduce manual effort and streamline workflows."
+    },
+    {
+      title: "Custom Scripts & Automation Tools",
+      description:
+        "Develop custom scripts and automation tools based on specific operational requirements."
+    },
+    {
+      title: "Workflow Automation",
+      description:
+        "Create automated workflows that connect operational activities and reduce unnecessary manual steps."
+    },
+    {
+      title: "Scheduled Task Automation",
+      description:
+        "Automate scheduled and recurring tasks to improve consistency and reduce manual intervention."
+    }
+  ]
+},
 
   network: {
     title: "Network & Storage Solutions",
