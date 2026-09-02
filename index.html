@@ -63,7 +63,7 @@
         </div>
 
         <div class="service-grid">
-          <article class="service-card reveal">
+          <article class="service-card reveal" data-service="infrastructure" role="button" tabindex="0">
             <div class="icon-box">
               <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="32" height="10" rx="2"/><rect x="8" y="19" width="32" height="10" rx="2"/><rect x="8" y="32" width="32" height="10" rx="2"/><path d="M13 11h1M13 24h1M13 37h1"/></svg>
             </div>
@@ -71,7 +71,7 @@
             <p>End-to-end IT infrastructure solutions designed for secure and high-performing organizations.</p>
           </article>
 
-          <article class="service-card reveal">
+          <article class="service-card reveal" data-service="software" role="button" tabindex="0">
             <div class="icon-box">
               <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="6" width="34" height="27" rx="2"/><path d="M17 41h14M24 33v8M17 18l-5 5 5 5M31 18l5 5-5 5M28 18l-7 10"/></svg>
             </div>
@@ -79,7 +79,7 @@
             <p>Custom software solutions built to meet your unique business requirements.</p>
           </article>
 
-          <article class="service-card reveal">
+          <article class="service-card reveal" data-service="cloud" role="button" tabindex="0">
             <div class="icon-box">
               <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 36h22a8 8 0 0 0 1-16 13 13 0 0 0-25-3 10 10 0 0 0 2 19Z"/></svg>
             </div>
@@ -87,7 +87,7 @@
             <p>Scalable, secure and cost-effective cloud solutions that drive business agility.</p>
           </article>
 
-          <article class="service-card reveal">
+          <article class="service-card reveal" data-service="datacenter" role="button" tabindex="0">
             <div class="icon-box">
               <svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="11" rx="14" ry="5"/><path d="M10 11v13c0 3 6 5 14 5s14-2 14-5V11M10 24v13c0 3 6 5 14 5s14-2 14-5V24"/><path d="M10 17c0 3 6 5 14 5s14-2 14-5"/></svg>
             </div>
@@ -95,7 +95,7 @@
             <p>Modern data center solutions focused on performance, availability and reliability.</p>
           </article>
 
-          <article class="service-card reveal">
+          <article class="service-card reveal" data-service="automation" role="button" tabindex="0">
             <div class="icon-box">
               <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.6 10.6l4.2 4.2M33.2 33.2l4.2 4.2M37.4 10.6l-4.2 4.2M14.8 33.2l-4.2 4.2"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="17"/></svg>
             </div>
@@ -103,7 +103,7 @@
             <p>Process automation solutions to improve efficiency and reduce operational costs.</p>
           </article>
 
-          <article class="service-card reveal">
+          <article class="service-card reveal" data-service="network" role="button" tabindex="0">
             <div class="icon-box">
               <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="11" r="5"/><circle cx="11" cy="34" r="5"/><circle cx="37" cy="34" r="5"/><path d="M20 15l-6 14M28 15l6 14M16 34h16"/></svg>
             </div>
@@ -219,6 +219,37 @@
         <a class="btn btn-primary" href="mailto:info@adibextechnologies.com">Get In Touch <span>→</span></a>
       </div>
     </section>
+    </section>
+    <!-- SERVICE MODAL -->
+    <div class="service-modal" id="serviceModal" aria-hidden="true">
+      <div class="service-modal-overlay">
+        <div class="service-modal-box" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+          <button
+            class="service-modal-close"
+            id="serviceModalClose"
+            aria-label="Close service details"
+          >
+            ×
+          </button>
+          <div class="service-modal-content">
+            <p class="eyebrow blue">SERVICE DETAILS</p>
+            <h2 id="serviceModalTitle">Service</h2>
+            <p id="serviceModalIntro"></p>
+            <div id="serviceDetailList" class="service-detail-list"></div>
+            <div class="service-modal-footer">
+              <a
+                id="serviceQuoteButton"
+                class="btn btn-primary"
+                href="mailto:info@adibextechnologies.com"
+              >
+                Request a Quote <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
   </main>
 
   <footer class="footer">
