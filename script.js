@@ -256,8 +256,41 @@ const serviceData = {
           "Provide ongoing technical support for network and storage environments to maintain reliable access to business resources."
       }
     ]
-  }
-
+  },
+  telecom: {
+  title: "Telecom & Business Process Solutions",
+  intro: "Reliable voice, non-voice, chat, email, telecom and back-office solutions designed to improve customer experience and operational efficiency.",
+  services: [
+    {
+      title: "Voice Support",
+      description: "Inbound and outbound customer support, query handling, assistance and issue resolution."
+    },
+    {
+      title: "Non-Voice Support",
+      description: "Back-office operations, data processing, validation, documentation and ticket processing."
+    },
+    {
+      title: "Chat Support",
+      description: "Live chat support for customer queries, service assistance and multi-channel communication."
+    },
+    {
+      title: "Email Support",
+      description: "Customer email handling, request management, complaint handling and follow-up operations."
+    },
+    {
+      title: "Telecom Operations",
+      description: "Order management, service activation, provisioning, telecom ticket processing and incident coordination."
+    },
+    {
+      title: "Technical Support",
+      description: "L1 technical support, troubleshooting, issue resolution, ticket handling and escalation coordination."
+    },
+    {
+      title: "Back-Office Operations",
+      description: "Data entry, verification, quality checks, documentation and workflow support."
+    }
+  ]
+}
 };
 
 
